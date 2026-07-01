@@ -1,0 +1,240 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Landing Dashboard */
+.landing-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  padding: 2rem 1.5rem;
+  margin: auto;
+  text-align: center;
+}
+
+.logo-glow {
+  width: 52px;
+  height: 52px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.landing-dashboard h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Suggestions Grid - ChatGPT Bottom Layout */
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.suggestion-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.suggestion-card:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.card-icon {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.card-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Chat Feed List */
+.chats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+  padding: 1.5rem 1rem 4rem 1rem;
+  align-items: center;
+}
+
+.chat-row {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 0.5rem;
+  width: 100%;
+  max-width: 720px;
+  align-items: flex-start;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.chat-row.user {
+  justify-content: flex-end;
+}
+
+.chat-row.gpt {
+  background-color: transparent;
+}
+
+/* ChatGPT Green Logo Avatar */
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  background-color: var(--primary); /* ChatGPT Green */
+  color: white;
+}
+
+/* Message Content Layout */
+.message-content {
+  flex: 1;
+  max-width: calc(100% - 44px);
+}
+
+.chat-row.user .message-content {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ChatGPT User Message Bubble: Slate-Gray Capsule on the Right */
+.userMessageBubble {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.userMessage {
+  background-color: var(--bg-card); /* Gray bubble */
+  color: var(--text-main);
+  padding: 0.65rem 1rem;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: inline-block;
+  text-align: left;
+  max-width: 70%;
+  word-break: break-word;
+}
+
+/* ChatGPT Assistant Message: Bare background with Markdown */
+.gptMessage {
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  padding-top: 0.15rem;
+}
+
+.gptMessage p {
+  margin-bottom: 0.75rem;
+}
+
+.gptMessage p:last-child {
+  margin-bottom: 0;
+}
+
+.gptMessage ul, .gptMessage ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.gptMessage li {
+  margin-bottom: 0.25rem;
+}
+
+.gptMessage pre {
+  background-color: #0d0d0d !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+}
+
+.gptMessage code {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.85rem;
+  padding: 0.15rem 0.3rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+}
+
+.gptMessage pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Blinking Typing Cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background-color: var(--text-main);
+  margin-left: 4px;
+  animation: blink 0.8s infinite;
+  vertical-align: middle;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+  }
+}

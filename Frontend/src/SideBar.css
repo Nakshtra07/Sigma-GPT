@@ -1,0 +1,120 @@
+.sidebar {
+  background-color: var(--bg-sidebar);
+  color: var(--text-main);
+  height: 100vh;
+  width: 260px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+/* New Chat Button */
+.sidebar button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.25rem 0 1rem 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer; 
+  transition: background-color var(--transition-fast);
+}
+
+.sidebar button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.Alogo {
+  height: 22px;
+  width: 22px;
+  background-color: white;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar button span i {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.sidebar button:hover span i {
+  color: var(--text-main);
+}
+
+/* History List */
+.history {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.history li {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0.65rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history li i {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+.history li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+}
+
+.history li:hover i {
+  color: var(--text-main);
+}
+
+/* ChatGPT Active Highlighting */
+.history li.active {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.history li.active i {
+  color: var(--text-main);
+}
+
+/* Footer / Author Sign */
+.sign {
+  padding: 0.85rem 0.5rem 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+}
